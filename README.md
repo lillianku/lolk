@@ -6,7 +6,7 @@
 
 **LOL K**
 
-LOL K (League of Legends Knockoff) is just a fun silly game that is based off of the classic, "Rock, Paper, Scissors". User will be able to create their own account, pick a "Champion" from the **League of Legends** API, and then go up against a computer generated "Champion". This app will document all wins, draws, and losses per the user's profile.
+LOL K (League of Legends Knockoff) is just a fun silly game that is based off of the classic, "Rock, Paper, Scissors". Users will be able to create their own account, pick a "Champion" from the **League of Legends** API, and then go up against a computer generated "Champion". This app will document all wins, draws, and losses per the user's profile.
 
 ### Technologies
 
