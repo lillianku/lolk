@@ -42,6 +42,6 @@ LOL K (League of Legends Knockoff) is just a fun silly game that is based off of
 ![Wireframe](wireframe/profile.png)
 ![Wireframe](wireframe/champions.png)
 
-### Crow's foot diagram of your schema.
+### Crow's foot diagram
 
 ![Diagram](wireframe/diagram.png)
