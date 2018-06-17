@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+  </head>
+  <body>
+    <h1>THIS IS BEFORE BLOCK</h1>
+    {% block base %}
+    {% endblock %}
+    <h1>THIS IS AFTER BLOCK</h1>
+  </body>
+</html>
