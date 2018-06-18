@@ -10,6 +10,7 @@ def champions(request):
     response = requests.get(url)
     champions = response.json()['data']
     context = {
+        'title': 'CHAMPIONS',
         'champions': champions
     }
     return render(request, 'champions.html', context)
