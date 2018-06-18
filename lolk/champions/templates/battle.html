@@ -4,10 +4,20 @@
 
 <div class='BattlePage'>
 
-  <div class='Right'>
+  <div class='Right' >
+    <h1 style='margin: 20px; color: white;'>Battle Ground</h1>
+    <div class='UserChoice'>
+      <h3 style='margin: 20px; color: white;'>Your Choice:</h3>
+      <img id='Thumbnail' src="" alt="" style='display: inline'>
+      <div class='Partial' style='max-height:10%; text-align: center; display: inline'>
+        <span>|Attack: <span id='Attack'></span>|</span>
+        <span>Defense: <span id='Defense'></span>|</span>
+        <span>Magic: <span id='Magic'></span>|</span>
+      </div>
+    </div>
   </div>
 
-  <div class='Left' style='overflow: scroll'>
+  <div class='Left' style='overflow: scroll; width: 38%;'>
     <ul class='List'>
       {% for champ in champions%}
       <div class='Item'>
