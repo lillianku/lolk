@@ -2,8 +2,6 @@ $(function () {
 //declare link? #link
 //get url http://ddragon.leagueoflegends.com/cdn/img/champion/splash/{{champ}}_0.jpg
 //set img, info/stats, and blurb
-console.log('JQuery is working');
-
 const $link = $('.Link');
 const $img = $('#Splash');
 const $info = $('#Info');
@@ -14,8 +12,12 @@ $link.click(function(){
   const alt = $(this).find('img').attr('alt')
   const url = `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${alt}_0.jpg`
   $img.attr('src', url)
-  $.get(`http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion/${alt}.json`, data => {
-    console.log(data);
+  $.get(`http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion/${alt}.json`, json => {
+    const stack = json.data[`${alt}`]
+    const attack = json.data[`${alt}`]['info']['attack'];
+    const defense = json.data[`${alt}`]['info']['defense'];
+    const magic = json.data[`${alt}`]['info']['magic'];
+    const lore = json.data[`${alt}`]['lore'];
   })
 });
 
