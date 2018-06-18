@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block base %}
+
+<div class='BattlePage'>
+
+  <div class='Right'>
+  </div>
+
+  <div class='Left' style='overflow: scroll'>
+    <ul class='List'>
+      {% for champ in champions%}
+      <div class='Item'>
+        <a href="#">
+          <li class='Link'>
+            <img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/{{champ}}.png" alt="{{champ}}">
+            <br/>{{champ}}
+          </li>
+        </a>
+      </div>
+      {% endfor %}
+    </ul>
+  </div>
+
+</div>
+
+{% endblock %}

@@ -17,3 +17,13 @@ def champions(request):
         'champions': champions
     }
     return render(request, 'champions.html', context)
+
+def battle(request):
+    url = 'http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json'
+    response = requests.get(url)
+    champions = response.json()['data']
+    context = {
+        'title': 'BATTLE',
+        'champions': champions
+    }
+    return render(request, 'battle.html', context)

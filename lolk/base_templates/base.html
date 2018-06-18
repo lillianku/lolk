@@ -40,7 +40,7 @@
     <nav class='navbar navbar-default'>
       <a class='navbar-brand text-muted' href="{% url 'home' %}">LOL K ;)</a>
       {% if user.is_authenticated %}
-        <a class='navbar-text navbar-right text-muted' style='margin-right:15px;' href="#">BATTLE</a>
+        <a class='navbar-text navbar-right text-muted' style='margin-right:15px;' href="{% url 'battle' %}">BATTLE</a>
         <a class='navbar-text navbar-right text-muted' style='margin-right:15px;' href="{% url 'champions' %}">CHAMPIONS</a>
       {% else %}
         <a class='navbar-text navbar-right text-muted' style='margin-right:15px;' href="{%url 'signup' %}">SIGNUP</a>
