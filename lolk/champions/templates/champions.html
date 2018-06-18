@@ -4,23 +4,23 @@
 
 <div class='ChampionsPage'>
 
-<div class='Right'>
-  <ul class='Champions'>
-    {% for champ in champions%}
-    <div class='Champion'>
-      <a href="#">
-        <li>
-          <img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/{{champ}}.png" alt="{{champ}}">
-          <br/>{{champ}}
-        </li>
-      </a>
-    </div>
-    {% endfor %}
-  </ul>
-</div>
+  <div class='Right'>
+    <ul class='Champions'>
+      {% for champ in champions%}
+      <div class='Champion'>
+        <a href="#">
+          <li>
+            <img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/{{champ}}.png" alt="{{champ}}">
+            <br/>{{champ}}
+          </li>
+        </a>
+      </div>
+      {% endfor %}
+    </ul>
+  </div>
 
-<div class='Left'>
-</div>
+  <div class='Left'>
+  </div>
 
 </div>
 
