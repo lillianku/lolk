@@ -44,7 +44,7 @@ def logout(request):
     if request.method == 'POST':
         auth.logout(request)
         return redirect('home')
-
+@login_required
 def profile(request, user_id):
     user = get_object_or_404(User, pk=user_id)
     context = {
@@ -52,3 +52,10 @@ def profile(request, user_id):
         'user':user,
     }
     return render(request, 'profile.html', context)
+
+@login_required
+def delete(request, user_id):
+    if request.method == 'POST':
+        user = get_object_or_404(User, pk=user_id)
+        user.delete()
+    return redirect('home')
