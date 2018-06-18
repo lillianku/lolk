@@ -1,5 +1,6 @@
 from django.shortcuts import render
 import requests
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def home(request):
@@ -18,6 +19,7 @@ def champions(request):
     }
     return render(request, 'champions.html', context)
 
+@login_required
 def battle(request):
     url = 'http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json'
     response = requests.get(url)
