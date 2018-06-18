@@ -20,3 +20,6 @@ def signup(request):
         'registered': registered,
     }
     return render(request, 'signup.html', context)
+
+def login(request):
+    return render(request, 'login.html',{'title':'Please Login'})

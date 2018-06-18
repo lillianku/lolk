@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block base%}
+
+
+  <div class="Forms">
+    {% if error%}
+      <h5 class="mt-5 text-center text-danger">{{error}}</h5>
+    {%else%}
+      <h2 class="mt-5 text-center text-danger">Login Below</h2>
+    {%endif%}
+    <form class="mt-5" action="{% url 'login'%}" method="POST">
+      {% csrf_token %}
+      <div class="text-danger">
+        Username:
+        <input class="form-control" type="text" name="username" required />
+      </div>
+      <div class="text-danger">
+        Password:
+        <input class="form-control" type="password" name="password" required />
+      </div>
+      <div>
+        <input class="mt-5 form-control btn btn-primary" type="submit" value="Login" />
+      </div>
+    </form>
+  </div>
+
+
+{%endblock%}
