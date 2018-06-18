@@ -59,3 +59,20 @@ def delete(request, user_id):
         user = get_object_or_404(User, pk=user_id)
         user.delete()
     return redirect('home')
+
+@login_required
+def update(request, user_id):
+    user = get_object_or_404(User, pk=user_id)
+    if request.method == 'POST':
+        update_user_form = SignUpForm(request.POST, instance=user)
+        if update_user_form.is_valid():
+            update_user_form.save()
+            return redirect('profile', user_id=request.user.id)
+    else:
+        update_user_form = SignUpForm(instance=user)
+    context = {
+    'title': f'Update {user.username}',
+    'update_user_form': update_user_form,
+    'user': user,
+    }
+    return render(request, 'update.html', context)
