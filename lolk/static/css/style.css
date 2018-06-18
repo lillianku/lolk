@@ -48,6 +48,10 @@
   border: 2px solid black;
   height: 700px;
 }
+#Splash{
+  width: 100%;
+  height: auto;
+}
 .List{
   list-style-type: none;
   display: flex;
