@@ -4,20 +4,21 @@ $(function () {
 //set img, info/stats, and blurb
 const $link = $('.Link');
 const $img = $('#Splash');
-const $info = $('#Info');
-const $blurb = $('#Blurb');
 
 $link.click(function(){
   // console.log($(this).find('img').attr('alt'));
+  $('#Attack').empty()
+  $('#Defense').empty()
+  $('#Magic').empty()
   const alt = $(this).find('img').attr('alt')
   const url = `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${alt}_0.jpg`
   $img.attr('src', url)
   $.get(`http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion/${alt}.json`, json => {
     const stack = json.data[`${alt}`]
-    const attack = json.data[`${alt}`]['info']['attack'];
-    const defense = json.data[`${alt}`]['info']['defense'];
-    const magic = json.data[`${alt}`]['info']['magic'];
-    const lore = json.data[`${alt}`]['lore'];
+    $('#Attack').text(stack['info']['attack'])
+    $('#Defense').text(stack['info']['defense'])
+    $('#Magic').text(stack['info']['magic'])
+    $('#Blurb').text(stack['blurb'])
   })
 });
 
