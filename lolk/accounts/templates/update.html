@@ -4,12 +4,18 @@
 
   <div class="Forms">
     <h2 class="text-center text-danger">Update Your Profile</h2>
-    <form action="#" method="POST">
+    <form action="{% url 'update' user.id %}" method="POST">
       {% csrf_token %}
       {% for field in update_user_form %}
-        {{ field.label}}:
-        <input class="form-control" type="text" name="{{field.name}}" />
-        <span class="error text-danger">{{field.errors}}</span>
+        {% if field.name == 'password'%}
+          {{ field.label}}:
+          <input class="form-control" type="password" name="{{field.name}}" value="{{field.value}}" readonly="readonly"/>
+          <span class="error text-danger">{{field.errors}}</span>
+        {% else %}
+          {{ field.label}}:
+          <input class="form-control" type="text" name="{{field.name}}" value="{{field.value}}"/>
+          <span class="error text-danger">{{field.errors}}</span>
+        {% endif %}
       {% endfor %}
       <div>
         <input class="form-control mt-5 btn btn-primary" type="submit" value="Update Profile" />
