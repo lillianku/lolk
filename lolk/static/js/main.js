@@ -18,7 +18,7 @@ $link.click(function(){
     $('#Attack').text(stack['info']['attack'])
     $('#Defense').text(stack['info']['defense'])
     $('#Magic').text(stack['info']['magic'])
-    $('#Blurb').text(stack['blurb'])
+    $('#Lore').html(stack['lore'])
   })
 });
 
