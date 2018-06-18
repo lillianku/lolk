@@ -1,20 +1,26 @@
 {% extends 'base.html' %}
 
 {% block base %}
-<h1>THIS IS THE CHAMPIONS PAGE WITHIN BLOCK</h1>
+
+<div class='ChampionsPage'>
 
 <div class='Right'>
   <ul class='Champions'>
     {% for champ in champions%}
-      <li class='Champion'>
-        <img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/{{champ}}.png" alt="">
-        <br/>{{champ}}
-      </li>
+    <div class='Champion'>
+      <a href="#">
+        <li>
+          <img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/{{champ}}.png" alt="{{champ}}">
+          <br/>{{champ}}
+        </li>
+      </a>
+    </div>
     {% endfor %}
   </ul>
 </div>
 
 <div class='Left'>
+</div>
 
 </div>
 
