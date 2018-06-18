@@ -9,7 +9,7 @@
       {% for champ in champions%}
       <div class='Item'>
         <a href="#">
-          <li>
+          <li class='Link'>
             <img src="http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/{{champ}}.png" alt="{{champ}}">
             <br/>{{champ}}
           </li>
@@ -19,7 +19,10 @@
     </ul>
   </div>
 
-  <div class='Left'>
+  <div id='Champ'class='Left'>
+    <img id='Splash' src="" alt="">
+    <ul id='Info'></ul>
+    <p id='Blurb'></p>
   </div>
 
 </div>
