@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block base %}
+
+{% if registered %}
+
+  <div class="jumbotron">
+      <h4 class="text-center text-danger">Thank you for Registering</h4>
+      <a class="mt-5 btn btn-primary form-control"href="#">
+      Click Here to Login
+      </a>
+  </div>
+
+{% else %}
+
+  <div class="Forms">
+      <h2 class="mt-5 text-center text-danger">Sign Up Below</h2>
+      <form action="{% url 'signup'%}" method="POST">
+        {% csrf_token %}
+        {%for field in signup_form %}
+        {%if field.name == 'password'%}
+        {{field.label}}
+        <input class="form-control" type="password"name="{{field.name}}"/>
+        {%else%}
+        {{field.label}}
+        <input class="form-control" name="{{field.name}}"/>
+        {%endif%}
+        {%endfor%}
+        <input class="mt-5 btn btn-primary form-control"type="submit" value="Register">
+      </form>
+  </div>
+
+ {% endif %}
+
+{% endblock %}

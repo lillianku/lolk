@@ -4,7 +4,7 @@ import requests
 
 def home(request):
     context = {
-    'title': 'LOL K'
+        'title': 'LOL K'
     }
     return render(request, 'home.html', context)
 
