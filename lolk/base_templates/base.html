@@ -19,7 +19,7 @@
 
     <div class="Accounts">
       {% if user.is_authenticated %}
-        <a href="#">PROFILE</a>
+        <a href="{% url 'profile' user.id %}">PROFILE</a>
         <a href="javascript:{$('#logout').submit()}">LOGOUT</a>
         <a href="{% url 'admin:index'%}">ADMIN</a>
         <form id="logout" action="{% url 'logout' %}" method="POST">

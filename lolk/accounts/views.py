@@ -1,6 +1,8 @@
-from django.shortcuts import render, redirect
-from .forms import SignUpForm
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import auth
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.models import User
+from .forms import SignUpForm
 
 # Create your views here.
 def signup(request):
@@ -42,3 +44,11 @@ def logout(request):
     if request.method == 'POST':
         auth.logout(request)
         return redirect('home')
+
+def profile(request, user_id):
+    user = get_object_or_404(User, pk=user_id)
+    context = {
+        'title': f'Welcome, {user.username}!',
+        'user':user,
+    }
+    return render(request, 'profile.html', context)
