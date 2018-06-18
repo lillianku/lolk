@@ -1,7 +1,46 @@
-h1{
-  color: green;
+.Main{
+  position: relative;
+  background-color: rgba(0, 0, 0, 1);
+  font-family: 'Marcellus SC', serif;
+}
+.Title{
+  text-align: center;
+  color: white;
 }
 
-#header{
-  background-color: red;
+.Left{
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 80%;
+  width: 35%;
+  margin-top: 150px;
+  margin-left: 50px;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+.Right{
+  float: right;
+  max-width: 60%;
+  margin: 10px;
+}
+
+.ChampionsPage{
+  background-image: url('../images/rift.jpg');
+  background-size: cover;
+  border: 2px solid black;
+  height: 750px;
+  overflow: scroll;
+}
+.Champions{
+  list-style-type: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-content: center;
+}
+.Champion{
+  text-align: center;
+  color: yellow;
+  background-color: rgba(0, 0, 0, 0.4);
+  margin: 1px;
 }
