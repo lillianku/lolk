@@ -18,18 +18,31 @@
   <body class='Main'>
 
     <div class="Accounts">
-      <a href="#">PROFILE</a>
+      {% if user.is_authenticated %}
+        <a href="#">PROFILE</a>
+        <a href="javascript:{$('#logout').submit()}">LOGOUT</a>
+        <a href="{% url 'admin:index'%}">ADMIN</a>
+        <form id="logout" action="{% url 'logout' %}" method="POST">
+          {% csrf_token %}
+          <input type="hidden" />
+        </form>
+      {% else %}
       <a href="{% url 'login'%}">LOGIN</a>
       <a href="{% url 'admin:index'%}">ADMIN</a>
+      {% endif %}
     </div>
 
     <h1 class='Title'>{{title}}</h1>
 
     <nav class='navbar navbar-default'>
       <a class='navbar-brand text-muted' href="{% url 'home' %}">LOL K ;)</a>
-      <a class='navbar-text navbar-right text-muted' style='margin-right:15px;' href="{%url 'signup' %}">SIGNUP</a>
-      <a class='navbar-text navbar-right text-muted' style='margin-right:15px;' href="{% url 'champions' %}">CHAMPIONS</a>
-      <a class='navbar-text navbar-right text-muted' style='margin-right:15px;' href="#">BATTLE</a>
+      {% if user.is_authenticated %}
+        <a class='navbar-text navbar-right text-muted' style='margin-right:15px;' href="#">BATTLE</a>
+        <a class='navbar-text navbar-right text-muted' style='margin-right:15px;' href="{% url 'champions' %}">CHAMPIONS</a>
+      {% else %}
+        <a class='navbar-text navbar-right text-muted' style='margin-right:15px;' href="{%url 'signup' %}">SIGNUP</a>
+        <a class='navbar-text navbar-right text-muted' style='margin-right:15px;' href="{% url 'champions' %}">CHAMPIONS</a>
+      {% endif %}
     </nav>
 
     {% block base %}
