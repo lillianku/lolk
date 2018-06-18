@@ -3,7 +3,10 @@ import requests
 # Create your views here.
 
 def home(request):
-    return render(request, 'home.html')
+    context = {
+    'title': 'LOL K'
+    }
+    return render(request, 'home.html', context)
 
 def champions(request):
     url = 'http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json'

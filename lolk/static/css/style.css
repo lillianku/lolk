@@ -30,11 +30,17 @@
   margin: 10px;
 }
 
+.HomePage{
+  background-color: white;
+  background-image: url('../images/home.jpg');
+  background-size: cover;
+  height: 700px;
+}
 .ChampionsPage{
   background-image: url('../images/rift.jpg');
   background-size: cover;
   border: 2px solid black;
-  height: 750px;
+  height: 700px;
   overflow: scroll;
 }
 .List{
