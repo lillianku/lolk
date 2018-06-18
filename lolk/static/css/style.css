@@ -7,6 +7,11 @@
   text-align: center;
   color: white;
 }
+.Accounts{
+  position: absolute;
+  right: 0;
+  margin-right: 15px;
+}
 
 .Left{
   position: fixed;
