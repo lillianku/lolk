@@ -38,15 +38,47 @@ $(function () {
       $('#Generate').hide()
       $('#Battle').show()
     });
-  })
+  });
 
   $('#Battle').click(function(){
-    console.log($('#Attack').text())
-    console.log($('#Defense').text())
-    console.log($('#Magic').text())
-    console.log($('#CompAttack').text())
-    console.log($('#CompDefense').text())
-    console.log($('#CompMagic').text())
-  })
+    $('#Battle').hide()
+    $('#Again').show()
+    const attack = parseInt($('#Attack').text())
+    const defense = parseInt($('#Defense').text())
+    const magic = parseInt($('#Magic').text())
+    const compAttack = parseInt($('#CompAttack').text())
+    const compDefense = parseInt($('#CompDefense').text())
+    const compMagic = parseInt($('#CompMagic').text())
+    var userChoice = 0
+    var compChoice = 0
+    if (attack > compAttack){
+      userChoice ++
+    }else{
+      compChoice ++
+    }
+    if (compDefense > defense){
+      userChoice ++
+    }else{
+      compChoice ++
+    }
+    if (magic > compMagic){
+      userChoice ++
+    }else{
+      compChoice ++
+    }
+    determineWin(userChoice, compChoice)
+  });
+
+  $('#Again').click(function(){
+    location.reload()
+  });
+
+  const determineWin = (user, comp) => {
+    if (user > comp){
+      $('#Result').attr('src', '../../static/images/victory.png')
+    }else{
+      $('#Result').attr('src', '../../static/images/defeat.png')
+    };
+  };
 
 });
