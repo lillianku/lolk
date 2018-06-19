@@ -25,12 +25,9 @@ $(function () {
   });
 
   $('#Generate').click(function(){
-    console.log('Generate!');
     $.get('http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json', json => {
-      console.log(Object.keys(json.data));
       const champions = Object.keys(json.data)
       const random = champions[~~(champions.length * Math.random())]
-      console.log(random);
       $('#CompThumbnail').attr('src', `http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/${random}.png`)
       $.get(`http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion/${random}.json`, json => {
         const stack = json.data[`${random}`]
@@ -44,7 +41,12 @@ $(function () {
   })
 
   $('#Battle').click(function(){
-
+    console.log($('#Attack').text())
+    console.log($('#Defense').text())
+    console.log($('#Magic').text())
+    console.log($('#CompAttack').text())
+    console.log($('#CompDefense').text())
+    console.log($('#CompMagic').text())
   })
 
 });
