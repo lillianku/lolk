@@ -65,11 +65,6 @@
   background-size: cover;
   height: 700px;
 }
-.BattlePage{
-  background-image: url('../images/aram.png');
-  background-size: cover;
-  height: 700px;
-}
 #Splash{
   width: 100%;
   height: auto;
@@ -86,4 +81,14 @@
   text-align: center;
   color: yellow;
   margin: 1px;
+}
+
+.BattlePage{
+  background-image: url('../images/aram.png');
+  background-size: cover;
+  height: 700px;
+}
+.Buttons{
+  display: flex;
+  justify-content: center;
 }
