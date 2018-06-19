@@ -4,6 +4,7 @@ $(function () {
 //set img, info/stats, and blurb
   $('.Link').click(function(){
     const alt = $(this).find('img').attr('alt')
+    $('#Name').text(`${alt}`)
     const splash = `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${alt}_0.jpg`
     $('#Splash').attr('src', splash)
     const thumbnail = `http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/${alt}.png`
@@ -18,16 +19,21 @@ $(function () {
   });
 
   $('#Lock').click(function(){
-    $('.List').hide()
-    $('#Generate').show()
-    $('#Lock').hide()
-    $('.CompChoice').show()
+    if($('#Name').text() === ''){
+      alert('Please pick your champion')
+    }else{
+      $('.List').hide()
+      $('#Generate').show()
+      $('#Lock').hide()
+      $('.CompChoice').show()
+    }
   });
 
   $('#Generate').click(function(){
     $.get('http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json', json => {
       const champions = Object.keys(json.data)
       const random = champions[~~(champions.length * Math.random())]
+      $('#CompName').text(`${random}`)
       $('#CompThumbnail').attr('src', `http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/${random}.png`)
       $.get(`http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion/${random}.json`, json => {
         const stack = json.data[`${random}`]
