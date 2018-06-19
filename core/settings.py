@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'core.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'book_rater_db',
+        'NAME': 'champions',
         'USER':'postgres',
         'PASSWORD':'root',
         'HOST':'localhost',
