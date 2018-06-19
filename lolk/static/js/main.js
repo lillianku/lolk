@@ -62,7 +62,7 @@ $(function () {
     }else{
       compChoice ++
     }
-    if (compDefense > defense){
+    if (defense > compDefense){
       userChoice ++
     }else{
       compChoice ++
