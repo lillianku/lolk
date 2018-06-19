@@ -57,21 +57,10 @@ $(function () {
     const compMagic = parseInt($('#CompMagic').text())
     var userChoice = 0
     var compChoice = 0
-    if (attack > compAttack){
-      userChoice ++
-    }else{
-      compChoice ++
-    }
-    if (defense > compDefense){
-      userChoice ++
-    }else{
-      compChoice ++
-    }
-    if (magic > compMagic){
-      userChoice ++
-    }else{
-      compChoice ++
-    }
+    const conditions = [(attack > compAttack), (defense > compDefense), (magic > compMagic)]
+    conditions.forEach(condition => {
+      condition? userChoice++ : compChoice++;
+    })
     determineWin(userChoice, compChoice)
   });
 
