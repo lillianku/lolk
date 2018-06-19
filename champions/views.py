@@ -10,7 +10,7 @@ def home(request):
     return render(request, 'home.html', context)
 
 def champions(request):
-    url = 'http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json'
+    url = 'https://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json'
     response = requests.get(url)
     champions = response.json()['data']
     context = {
@@ -21,7 +21,7 @@ def champions(request):
 
 @login_required
 def battle(request):
-    url = 'http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json'
+    url = 'https://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json'
     response = requests.get(url)
     champions = response.json()['data']
     context = {
