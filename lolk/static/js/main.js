@@ -4,20 +4,24 @@ $(function () {
 //set img, info/stats, and blurb
   $('.Link').click(function(){
     const alt = $(this).find('img').attr('alt')
-
     const splash = `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${alt}_0.jpg`
     $('#Splash').attr('src', splash)
-
     const thumbnail = `http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/${alt}.png`
     $('#Thumbnail').attr('src', thumbnail)
-
     $.get(`http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion/${alt}.json`, json => {
       const stack = json.data[`${alt}`]
       $('#Attack').text(stack['info']['attack'])
       $('#Defense').text(stack['info']['defense'])
       $('#Magic').text(stack['info']['magic'])
       $('#Lore').html(stack['lore'])
-    })
+    });
+  });
+
+  $('#Lock').click(function(){
+    $('.List').hide()
+    $('#Generate').show()
+    $('#Lock').hide()
+    $('.CompChoice').show()
   });
 
   $('#Generate').click(function(){
@@ -33,12 +37,14 @@ $(function () {
         $('#CompAttack').text(stack['info']['attack'])
         $('#CompDefense').text(stack['info']['defense'])
         $('#CompMagic').text(stack['info']['magic'])
-      })
-
-    })
-
+      });
+      $('#Generate').hide()
+      $('#Battle').show()
+    });
   })
 
+  $('#Battle').click(function(){
 
+  })
 
 });
