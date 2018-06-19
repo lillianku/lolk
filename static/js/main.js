@@ -2,6 +2,8 @@ $(function () {
 //declare link? #link
 //get url http://ddragon.leagueoflegends.com/cdn/img/champion/splash/{{champ}}_0.jpg
 //set img, info/stats, and blurb
+
+
   $('.Link').click(function(){
     const alt = $(this).find('img').attr('alt')
     $('#Name').text(`${alt}`)
@@ -55,6 +57,7 @@ $(function () {
     const compAttack = parseInt($('#CompAttack').text())
     const compDefense = parseInt($('#CompDefense').text())
     const compMagic = parseInt($('#CompMagic').text())
+
     var userChoice = 0
     var compChoice = 0
     const conditions = [(attack > compAttack), (defense > compDefense), (magic > compMagic)]
@@ -62,6 +65,18 @@ $(function () {
       condition? userChoice++ : compChoice++;
     })
     determineWin(userChoice, compChoice)
+    var result = determineWin(userChoice, compChoice)
+
+    const token = $("[name=csrfmiddlewaretoken]").val();
+
+    var user_choice = $('#Name').text()
+    var comp_choice = $('#CompName').text()
+    $.post('/save/', {
+      user_choice: `${user_choice}`,
+      comp_choice: `${comp_choice}`,
+      result: `${result}`,
+      csrfmiddlewaretoken: token,
+    })
   });
 
   $('#Again').click(function(){
@@ -71,8 +86,10 @@ $(function () {
   const determineWin = (user, comp) => {
     if (user > comp){
       $('#Result').attr('src', '../../static/images/victory.png')
+      return ('victory')
     }else{
       $('#Result').attr('src', '../../static/images/defeat.png')
+      return ('defeat')
     };
   };
 
