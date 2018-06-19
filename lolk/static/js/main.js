@@ -2,13 +2,7 @@ $(function () {
 //declare link? #link
 //get url http://ddragon.leagueoflegends.com/cdn/img/champion/splash/{{champ}}_0.jpg
 //set img, info/stats, and blurb
-  const $link = $('.Link');
-
-  $link.click(function(){
-    console.log('hi');
-    $('#Attack').empty()
-    $('#Defense').empty()
-    $('#Magic').empty()
+  $('.Link').click(function(){
     const alt = $(this).find('img').attr('alt')
 
     const splash = `http://ddragon.leagueoflegends.com/cdn/img/champion/splash/${alt}_0.jpg`
@@ -25,5 +19,26 @@ $(function () {
       $('#Lore').html(stack['lore'])
     })
   });
+
+  $('#Generate').click(function(){
+    console.log('Generate!');
+    $.get('http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json', json => {
+      console.log(Object.keys(json.data));
+      const champions = Object.keys(json.data)
+      const random = champions[~~(champions.length * Math.random())]
+      console.log(random);
+      $('#CompThumbnail').attr('src', `http://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/${random}.png`)
+      $.get(`http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion/${random}.json`, json => {
+        const stack = json.data[`${random}`]
+        $('#CompAttack').text(stack['info']['attack'])
+        $('#CompDefense').text(stack['info']['defense'])
+        $('#CompMagic').text(stack['info']['magic'])
+      })
+
+    })
+
+  })
+
+
 
 });
