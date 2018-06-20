@@ -39,11 +39,11 @@
       </h3>
       <small>League of Legends is created by Riot Games. LOLK uses their characters, images, and info from their free API</small>
     </div>
-    <div class="Partial" style='height: 30%'>
+    <div class="Partial" style='height: 36%'>
       <h3>Top Warriors:</h3>
       <ol>
         {% for rank in rankings %}
-          <li>{{rank}}</li>
+          <li><h4>{{rank.0}}: {{rank.1}}</h4></li>
         {% endfor %}
       </ol>
     </div>
