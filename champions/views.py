@@ -27,7 +27,8 @@ def ranking():
             percentage = 0
         else:
             percentage = len(victories)/len(battles)
-        rankings.append((user, percentage))
+        percent = round(percentage * 100, 2)
+        rankings.append((user, f'{percent}%'))
     return(rankings)
 
 def champions(request):
