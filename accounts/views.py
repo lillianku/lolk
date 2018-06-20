@@ -3,7 +3,7 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .forms import SignUpForm
-
+from champions.models import Battle
 # Create your views here.
 def signup(request):
     registered = False # <= look! it's template boolean
@@ -44,12 +44,15 @@ def logout(request):
     if request.method == 'POST':
         auth.logout(request)
         return redirect('home')
+        
 @login_required
 def profile(request, user_id):
     user = get_object_or_404(User, pk=user_id)
+    battles = Battle.objects.filter(player_id=user_id)
     context = {
         'title': f'Welcome, {user.username}!',
-        'user':user,
+        'user': user,
+        'battles': battles,
     }
     return render(request, 'profile.html', context)
 

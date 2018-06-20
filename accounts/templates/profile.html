@@ -5,6 +5,24 @@
 <div class='ProfilePage'>
 
   <div class='Right'>
+    <ul class='List'>
+      {% for battle in battles%}
+      <div class='Item'>
+        <li class='Link'>
+          <h3>{{battle.result}}</h3>
+          <div style='display:inline;'>
+            <img src="https://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/{{battle.user_choice}}.png" alt="{{battle.user_choice}}" >
+            </br><h4>{{battle.user_choice}}</h4>
+          </div>
+          <h3 >VS</h3>
+          <div style='display:inline;'>
+            <img src="https://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/{{battle.comp_choice}}.png" alt="{{battle.comp_choice}}" >
+            </br><h4>{{battle.comp_choice}}</h4>
+          </div>
+        </li>
+      </div>
+      {% endfor %}
+    </ul>
   </div>
 
   <div class='Left'>
