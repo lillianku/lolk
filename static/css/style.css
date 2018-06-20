@@ -79,7 +79,6 @@
 }
 .Item{
   text-align: center;
-  color: yellow;
   margin: 1px;
 }
 
@@ -91,4 +90,13 @@
 .Buttons{
   display: flex;
   justify-content: center;
+}
+
+.Battle{
+  color: white;
+  text-align: center;
+  /* display: flex;
+  flex-flow: row; */
+  /* display: inline; */
+  width: 300px;
 }
