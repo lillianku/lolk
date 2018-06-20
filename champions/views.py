@@ -6,8 +6,10 @@ from django.http import HttpResponse
 # Create your views here.
 
 def home(request):
+    battles = Battle.objects.order_by('-battle_date')
     context = {
-        'title': 'LOL K'
+        'title': 'LOL K',
+        'battles': battles,
     }
     return render(request, 'home.html', context)
 

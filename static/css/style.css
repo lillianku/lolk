@@ -95,8 +95,5 @@
 .Battle{
   color: white;
   text-align: center;
-  /* display: flex;
-  flex-flow: row; */
-  /* display: inline; */
   width: 300px;
 }

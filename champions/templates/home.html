@@ -5,7 +5,28 @@
 <div class='HomePage'>
 
   <div class='Right'>
-    <h1 style='margin: 20px; color: white;'>There are no matches to display at this time...</h1>
+    {% if battles %}
+      <ul class='List'>
+        {% for battle in battles%}
+        <div class='Battle'>
+          <li>
+            {% if battle.result == 'defeat'%}
+              <h2 style='color:red;margin-bottom:0px;'>{{battle.result}}</h2>
+            {% else %}
+              <h2 style='color:green;margin-bottom:0px;'>{{battle.result}}</h2>
+            {% endif %}
+            <h3 style='margin-top:0px;'>{{battle.user_choice}} VS {{battle.comp_choice}}</h3>
+            <img src="https://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/{{battle.user_choice}}.png" alt="{{battle.user_choice}}" >
+            <img src="https://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/{{battle.comp_choice}}.png" alt="{{battle.comp_choice}}" >
+            <br />{{battle.player}}
+            <br />{{battle.battle_date}}
+          </li>
+        </div>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <h1 style='margin: 20px; color: white;'>There are no matches to display at this time...</h1>
+    {% endif %}
   </div>
 
   <div class='Left'>
