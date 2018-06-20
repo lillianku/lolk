@@ -66,6 +66,9 @@
   background-size: cover;
   height: 700px;
 }
+.ProfilePage{
+  height: 700px;
+}
 #Splash{
   width: 100%;
   height: auto;
