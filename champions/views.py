@@ -2,16 +2,33 @@ from django.shortcuts import render
 import requests
 from django.contrib.auth.decorators import login_required
 from .models import Battle
+from django.contrib.auth.models import User
 from django.http import HttpResponse
 # Create your views here.
 
 def home(request):
     battles = Battle.objects.order_by('-battle_date')
+    rankings = ranking()
+    rankings.sort(key=lambda tup: tup[1], reverse=True)
     context = {
         'title': 'LOL K',
         'battles': battles,
+        'rankings': rankings[:5],
     }
     return render(request, 'home.html', context)
+
+def ranking():
+    all_users = User.objects.all()
+    rankings = []
+    for user in all_users:
+        battles = Battle.objects.filter(player=user)
+        victories = battles.filter(result='victory')
+        if len(battles) == 0:
+            percentage = 0
+        else:
+            percentage = len(victories)/len(battles)
+        rankings.append((user, percentage))
+    return(rankings)
 
 def champions(request):
     url = 'https://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion.json'
