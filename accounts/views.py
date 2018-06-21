@@ -56,7 +56,6 @@ def profile(request, user_id):
     # https://stackoverflow.com/questions/946860/using-pythons-list-index-method-on-a-list-of-tuples-or-objects
     user_rank = [y[0] for y in rankings].index(user)
     user_percentage = rankings[user_rank][1]
-    print(user_percentage)
     players = len(rankings)
     context = {
         'title': f'Welcome, {user.username}!',
