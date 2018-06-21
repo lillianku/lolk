@@ -55,6 +55,8 @@ def profile(request, user_id):
     rankings.sort(key=lambda tup: tup[1], reverse=True)
     # https://stackoverflow.com/questions/946860/using-pythons-list-index-method-on-a-list-of-tuples-or-objects
     user_rank = [y[0] for y in rankings].index(user)
+    user_percentage = rankings[user_rank][1]
+    print(user_percentage)
     players = len(rankings)
     context = {
         'title': f'Welcome, {user.username}!',
@@ -62,6 +64,7 @@ def profile(request, user_id):
         'battles': battles,
         'rank': user_rank + 1,
         'players': players,
+        'percentage': user_percentage,
     }
     return render(request, 'profile.html', context)
 
