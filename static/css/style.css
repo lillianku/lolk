@@ -99,6 +99,11 @@
   margin: 1px;
 }
 
+.ShowBattlePage{
+  background-image: url('../images/aram.png');
+  background-size: cover;
+  height: 750px;
+}
 .BattlePage{
   background-image: url('../images/aram.png');
   background-size: cover;

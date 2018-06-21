@@ -9,11 +9,13 @@
       {% for battle in battles%}
       <div class='Battle'>
         <li>
-          {% if battle.result == 'defeat'%}
-            <h2 style='color:red;margin-bottom:0px;'>{{battle.result}}</h2>
-          {% else %}
-            <h2 style='color:green;margin-bottom:0px;'>{{battle.result}}</h2>
-          {% endif %}
+            <a href="{% url 'show_battle' battle.id %}">
+            {% if battle.result == 'defeat'%}
+              <h2 style='color:red;margin-bottom:0px;'>{{battle.result}}</h2>
+            {% else %}
+              <h2 style='color:green;margin-bottom:0px;'>{{battle.result}}</h2>
+            {% endif %}
+          </a>
           <h3 style='margin-top:0px;'>{{battle.user_choice}} VS {{battle.comp_choice}}</h3>
           <img style='border: 1px solid yellow'src="https://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/{{battle.user_choice}}.png" alt="{{battle.user_choice}}" >
           <img src="https://ddragon.leagueoflegends.com/cdn/6.24.1/img/champion/{{battle.comp_choice}}.png" alt="{{battle.comp_choice}}" >
