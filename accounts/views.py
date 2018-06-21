@@ -53,6 +53,7 @@ def profile(request, user_id):
     rankings = ranking()
     # https://stackoverflow.com/questions/3121979/how-to-sort-list-tuple-of-lists-tuples
     rankings.sort(key=lambda tup: tup[1], reverse=True)
+    # https://stackoverflow.com/questions/946860/using-pythons-list-index-method-on-a-list-of-tuples-or-objects
     user_rank = [y[0] for y in rankings].index(user)
     players = len(rankings)
     context = {
