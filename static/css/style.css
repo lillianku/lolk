@@ -38,9 +38,8 @@
 .Right{
   float: right;
   width: 55%;
-  height: 97%;
-  margin: 10px;
-  margin-right: 50px;
+  height: 90%;
+  margin: 30px 50px 10px 0px;
   overflow: scroll;
   background-color: rgba(0, 0, 0, 0.4);
   padding: 0px;
@@ -60,23 +59,23 @@
 .HomePage{
   background-image: url('../images/treeline.jpg');
   background-size: cover;
-  height: 700px;
+  height: 750px;
 }
 .ChampionsPage{
   background-image: url('../images/rift.jpg');
   background-size: cover;
-  height: 700px;
+  height: 750px;
 }
 .CredentialsPage{
   background-image: url('../images/home.jpg');
   background-size: cover;
-  height: 700px;
+  height: 750px;
   position: relative;
 }
 .ProfilePage{
   background-image: url('../images/home.jpg');
   background-size: cover;
-  height: 700px;
+  height: 750px;
 }
 #Splash{
   width: 100%;
@@ -98,7 +97,7 @@
 .BattlePage{
   background-image: url('../images/aram.png');
   background-size: cover;
-  height: 700px;
+  height: 750px;
 }
 .Buttons{
   display: flex;
