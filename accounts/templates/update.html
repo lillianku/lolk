@@ -2,6 +2,8 @@
 
 {% block base %}
 
+<div class='CredentialsPage'>
+
   <div class="Forms">
     <h2 class="text-center text-danger">Update Your Profile</h2>
     <form action="{% url 'update' user.id %}" method="POST">
@@ -18,9 +20,12 @@
         {% endif %}
       {% endfor %}
       <div>
+        <br />
         <input class="form-control mt-5 btn btn-primary" type="submit" value="Update Profile" />
       </div>
     </form>
   </div>
+
+</div>
 
 {% endblock%}

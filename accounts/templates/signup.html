@@ -2,6 +2,8 @@
 
 {% block base %}
 
+<div class='CredentialsPage'>
+
 {% if registered %}
 
   <div class="jumbotron Forms">
@@ -26,10 +28,13 @@
         <input class="form-control" name="{{field.name}}"/>
         {%endif%}
         {%endfor%}
+        <br />
         <input class="mt-5 btn btn-primary form-control"type="submit" value="Register">
       </form>
   </div>
 
  {% endif %}
+
+ </div>
 
 {% endblock %}

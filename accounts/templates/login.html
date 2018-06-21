@@ -2,8 +2,9 @@
 
 {% block base%}
 
+<div class='CredentialsPage'>
 
-  <div class="Forms">
+  <div class="Forms"  style='height:30%'>
     {% if error%}
       <h5 class="mt-5 text-center text-danger">{{error}}</h5>
     {%else%}
@@ -20,10 +21,12 @@
         <input class="form-control" type="password" name="password" required />
       </div>
       <div>
+        <br />
         <input class="mt-5 form-control btn btn-primary" type="submit" value="Login" />
       </div>
     </form>
   </div>
 
+ </div>
 
 {%endblock%}
