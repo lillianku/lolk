@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block base %}
+
+<div class='ShowBattlePage'>
+
+  <div class='Show Right'>
+    <h1>Computer's Champion</h1>
+    <img class='Splash' src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/{{battle.comp_choice}}_0.jpg" alt="{{battle.comp_choice}}">
+    <h2>{{comp.name}}</h2>
+    <h3>Attack: {{comp.info.attack}}</h3>
+    <h3>Defense: {{comp.info.defense}}</h3>
+    <h3>Magic: {{comp.info.magic}}</h3>
+  </div>
+
+  <div class='Show Left'>
+    <h1>{{battle.player}}'s Champion</h1>
+    <img class='Splash'src="http://ddragon.leagueoflegends.com/cdn/img/champion/splash/{{battle.user_choice}}_0.jpg" alt="{{battle.user_choice}}">
+    <h2>{{user.name}}</h2>
+    <h3>Attack: {{user.info.attack}}</h3>
+    <h3>Defense: {{user.info.defense}}</h3>
+    <h3>Magic: {{user.info.magic}}</h3>
+  </div>
+
+
+</div>
+
+{% endblock %}

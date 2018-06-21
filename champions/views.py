@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 import requests
 from django.contrib.auth.decorators import login_required
 from .models import Battle
@@ -64,10 +64,25 @@ def save(request):
             battle.player = request.user
             battle.save()
             return HttpResponse('')
-            #Do I need a redirect here if I just want it to stay on the page?
         else:
             print ('didnt pass conditions')
-        # else: print error?
     else:
         print ('isnt post method')
-    # else: print error?
+
+@login_required
+def show_battle(request, battle_id):
+    battle = Battle.objects.filter(id=battle_id)
+    user_url = f'http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion/{battle[0].user_choice}.json'
+    comp_url = f'http://ddragon.leagueoflegends.com/cdn/6.24.1/data/en_US/champion/{battle[0].comp_choice}.json'
+    user_response = requests.get(user_url)
+    comp_response = requests.get(comp_url)
+    print(user_url)
+    user = user_response.json()['data']
+    comp = comp_response.json()['data']
+    context ={
+        'title': f'{battle[0].result}',
+        'battle': battle[0],
+        'user': user[f'{battle[0].user_choice}'],
+        'comp': comp[f'{battle[0].comp_choice}'],
+    }
+    return render(request, 'showbattle.html', context)
