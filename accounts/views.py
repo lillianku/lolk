@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .forms import SignUpForm
 from champions.models import Battle
+from champions.views import ranking
 # Create your views here.
 def signup(request):
     registered = False # <= look! it's template boolean
@@ -44,17 +45,25 @@ def logout(request):
     if request.method == 'POST':
         auth.logout(request)
         return redirect('home')
-        
+
 @login_required
 def profile(request, user_id):
     user = get_object_or_404(User, pk=user_id)
     battles = Battle.objects.filter(player_id=user_id)
+    rankings = ranking()
+    # https://stackoverflow.com/questions/3121979/how-to-sort-list-tuple-of-lists-tuples
+    rankings.sort(key=lambda tup: tup[1], reverse=True)
+    user_rank = [y[0] for y in rankings].index(user)
+    players = len(rankings)
     context = {
         'title': f'Welcome, {user.username}!',
         'user': user,
         'battles': battles,
+        'rank': user_rank + 1,
+        'players': players,
     }
     return render(request, 'profile.html', context)
+
 
 @login_required
 def delete(request, user_id):

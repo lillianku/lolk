@@ -25,11 +25,12 @@
   </div>
 
   <div class='Left'>
-    <div class='Partial' style='height:50%'>
+    <div class='Partial' style='height:55%'>
       <h1 class="text-danger card-title">Your Profile</h1>
       <h3>Username: {{user.username}}</h3>
       <h3>Name: {{user.first_name}} {{user.last_name}}</h3>
       <h3>Email: {{user.email}}</h3>
+      <br />
       <a href="javascript:{$('#delete-{{user.id}}').submit()}" class="btn btn-sm btn-danger">
         <i class="fas fa-trash-alt"></i>
         Delete Profile
@@ -42,6 +43,7 @@
         {% csrf_token %}
         <input type="hidden" />
       </form>
+      <h3>Your Rank: {{rank}} out of {{players}} warriors</h3>
     </div>
   </div>
 

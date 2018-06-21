@@ -9,6 +9,7 @@ from django.http import HttpResponse
 def home(request):
     battles = Battle.objects.order_by('-battle_date')
     rankings = ranking()
+    # https://stackoverflow.com/questions/3121979/how-to-sort-list-tuple-of-lists-tuples
     rankings.sort(key=lambda tup: tup[1], reverse=True)
     context = {
         'title': 'LOL K',

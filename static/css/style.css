@@ -74,6 +74,8 @@
   position: relative;
 }
 .ProfilePage{
+  background-image: url('../images/home.jpg');
+  background-size: cover;
   height: 700px;
 }
 #Splash{
