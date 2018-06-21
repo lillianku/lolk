@@ -77,12 +77,12 @@ def show_battle(request, battle_id):
     user_response = requests.get(user_url)
     comp_response = requests.get(comp_url)
     print(user_url)
-    user = user_response.json()['data']
+    player = user_response.json()['data']
     comp = comp_response.json()['data']
     context ={
         'title': f'{battle[0].result}',
         'battle': battle[0],
-        'user': user[f'{battle[0].user_choice}'],
+        'player': player[f'{battle[0].user_choice}'],
         'comp': comp[f'{battle[0].comp_choice}'],
     }
     return render(request, 'showbattle.html', context)
